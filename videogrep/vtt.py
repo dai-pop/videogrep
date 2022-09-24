@@ -11,7 +11,12 @@ def timestamp_to_secs(ts: str) -> float:
     :param ts str: Timestamp
     :rtype float: Seconds
     """
-    hours, minutes, seconds = ts.split(":")
+    if ts.count(":") == 2:
+        hours = 0
+        minutes, seconds = ts.split(":")
+    else:
+        hours, minutes, seconds = ts.split(":")
+    
     return float(hours) * 60 * 60 + float(minutes) * 60 + float(seconds)
 
 
