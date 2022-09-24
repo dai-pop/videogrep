@@ -11,7 +11,7 @@ def timestamp_to_secs(ts: str) -> float:
     :param ts str: Timestamp
     :rtype float: Seconds
     """
-    if ts.count(":") == 2:
+    if ts.count(":") == 2: # WebVTT supports MM:SS format. https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API
         hours = 0
         minutes, seconds = ts.split(":")
     else:
